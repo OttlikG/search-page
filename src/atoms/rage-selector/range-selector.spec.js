@@ -8,12 +8,12 @@ describe('RangeSelector', () => {
 			const props = {
 				min: 0,
 				max: 100,
-				initialValue: 102
+				value: 102
 			}
 			const component = shallow(<RangeSelector {...props} />)
 			const propsOnInput = component.find('input').props()
 
-			expect(propsOnInput.defaultValue).toBe(50)
+			expect(propsOnInput.value).toBe(50)
 		})
 
 		it('should set initialValue to the center if not defined', () => {
@@ -22,7 +22,7 @@ describe('RangeSelector', () => {
 				max: 100
 			}
 			const component = shallow(<RangeSelector {...props} />)
-			const initialValue = component.find('input').props().defaultValue
+			const initialValue = component.find('input').props().value
 
 			expect(initialValue).toBe(50)
 		})
@@ -41,14 +41,14 @@ describe('RangeSelector', () => {
 
 		it('should set initial values for min max', () => {
 			const props = {
-				initialValue: 200
+				value: 200
 			}
 			const component = shallow(<RangeSelector {...props} />)
 			const propsOnInput = component.find('input').props()
 
 			expect(propsOnInput.min).toBe(0)
 			expect(propsOnInput.max).toBe(100)
-			expect(propsOnInput.defaultValue).toBe(50)
+			expect(propsOnInput.value).toBe(50)
 		})
 	})
 
@@ -57,7 +57,7 @@ describe('RangeSelector', () => {
 			const props = {
 				min: 0,
 				max: 100,
-				initialValue: 40
+				value: 40
 			}
 			const component = mount(<RangeSelector {...props} />)
 			const style = component.find('input').props().style
@@ -68,7 +68,7 @@ describe('RangeSelector', () => {
 			const props = {
 				min: 0,
 				max: 100,
-				initialValue: 50
+				value: 50
 			}
 			const component = mount(<RangeSelector {...props} />)
 			component.find('input').simulate('change', { target: { value: 40, min: 0, max: 100 } })
@@ -84,7 +84,7 @@ describe('RangeSelector', () => {
 				onChange: onChangeSpy
 			}
 
-			const component = mount(<RangeSelector {...props} />)
+			mount(<RangeSelector {...props} />)
 			expect(onChangeSpy).toHaveBeenCalledWith(50)
 		})
 	})

@@ -70,7 +70,7 @@ export default function RangeSelector({ labelPrefix, onChange, min, max, value, 
 					min={rangeValues.min}
 					max={rangeValues.max}
 					style={{ background }}
-					value={sliderCurrentValue}
+					value={rangeValues.initialValue}
 					onChange={inputChangeListener}
 				></input>
 			</div>
