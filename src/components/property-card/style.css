@@ -1,0 +1,76 @@
+
+.property-card {
+	flex-basis: calc(50%);
+	padding: 20px;
+}
+
+.property-card__carousel {
+	position: relative;
+}
+
+.property-card__description {
+	display: flex;
+	flex-basis: 100%;
+}
+
+.property-card__title {
+	flex-grow: 1;
+	margin-bottom: 20px;
+}
+
+.property-card__heading {
+	font-family: 'Roboto', sans-serif;
+	font-size: var(--fs-m2);
+	font-weight: 800;
+}
+
+.property-card__price {
+	font-family: 'Roboto', sans-serif;
+	font-size: var(--fs-m2);
+	font-weight: 800;
+}
+
+.property-card__subheading {
+	font-size: var(--fs-m1);
+	font-style: italic;
+}
+
+.property-card__facility {
+	display: flex;
+	list-style: none;
+	margin: -20px;
+}
+
+.property-card__facility li {
+	padding: 20px;
+}
+
+@media (max-width: 960px) {
+	.property-card__heading {
+		font-size: var(--fs-m1);
+	}
+
+	.property-card__price {
+		font-size: var(--fs-m1);
+	}
+
+	.property-card__subheading {
+		font-size: var(--fs-s4)
+	}
+}
+
+@media (max-width: 768px) {
+	.property-card {
+		flex-basis: 100%;
+	}
+}
+
+@media (max-width: 375px) {
+	.property-card__facility {
+		margin: -8px;
+	}
+
+	.property-card__facility li {
+		padding: 8px;
+	}
+}
