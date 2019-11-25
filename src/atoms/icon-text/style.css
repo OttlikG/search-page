@@ -1,0 +1,19 @@
+.icon-text {
+	display: flex;
+	align-items: baseline;
+}
+
+.icon-text__text {
+	font-size: var(--fs-f4);
+	margin-left: 10px;
+}
+
+@media (max-width: 960px) {
+	.icon-text__text {
+		font-size: var(--fs-f3)
+	}
+
+	.icon-text .fas {
+		font-size: 1.6em;
+	}
+}
