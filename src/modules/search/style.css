@@ -1,0 +1,27 @@
+.search-box {
+	position: relative;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.search-input {
+	width: 100%;
+	border: 2px solid gray;
+}
+
+.listing {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -20px;
+}
+
+.search-input {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 5px;
+}
+
+.search-input > * {
+	padding: 5px;
+}
