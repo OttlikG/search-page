@@ -1,0 +1,38 @@
+:root {
+	--gallery-gap: 5px;
+}
+
+.restaurant-gallery {
+	max-width: 1200px;
+	margin: 0 auto;
+	margin-top: 30px;
+
+	display: flex;
+
+	-webkit-mask-image: linear-gradient(90deg, #fff 0, #fff 95%, transparent);
+	cursor: pointer;
+}
+
+.restaurant-gallery__big-tile img {
+	height: 400px;
+	margin-right: var(--gallery-gap);
+}
+
+.restaurant-gallery__top-flow {
+	margin-bottom: var(--gallery-gap);
+}
+
+.restaurant-gallery__top-flow,
+.restaurant-gallery__bottom-flow {
+	display: flex;
+}
+
+.restaurant-gallery__top-flow img,
+.restaurant-gallery__bottom-flow img {
+	height: 197.5px;
+}
+
+.restaurant-gallery__top-flow img:not(:first-child),
+.restaurant-gallery__bottom-flow img:not(:first-child) {
+	margin-left: var(--gallery-gap);
+}
