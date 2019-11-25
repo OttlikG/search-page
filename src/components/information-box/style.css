@@ -1,0 +1,15 @@
+
+.information-box__title {
+  font-size: 26px;
+}
+
+.information-box__address > span:not(:first-child)::before, .information-box__ranking > span:not(:first-child)::before {
+  margin-right: 12px;
+  margin-left: 12px;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  vertical-align: middle;
+  width: 1px;
+  background-color: #e5e5e5;
+}
