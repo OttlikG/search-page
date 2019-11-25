@@ -18,7 +18,7 @@ describe('PropertyCard', () => {
 	it('should navigate to the previous image', () => {
 		const component = mount(<PropertyCard {...props} />)
 		component.find('.fa-chevron-left').first().simulate('click')
-		const url = component.find('ResponsiveImage').first().props().url
+		const url = component.find('ResponsiveImage').last().props().url
 
 		expect(url).toBe('https://www.placeholdere.com/3')
 	})
@@ -26,7 +26,7 @@ describe('PropertyCard', () => {
 	it('should navigate to the next image', () => {
 		const component = mount(<PropertyCard {...props} />)
 		component.find('.fa-chevron-right').first().simulate('click')
-		const url = component.find('ResponsiveImage').first().props().url
+		const url = component.find('ResponsiveImage').last().props().url
 
 		expect(url).toBe('https://www.placeholdere.com/2')
 	})
