@@ -1,0 +1,11 @@
+.ant-popover {
+  max-width: 300px;
+}
+
+.claimed-box {
+  cursor: pointer;
+}
+
+.claimed-box__unclaimed {
+  border-bottom: 1px dotted #999;
+}
