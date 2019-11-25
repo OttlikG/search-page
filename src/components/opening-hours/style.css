@@ -1,0 +1,23 @@
+.opening-hours-table {
+  padding: 0;
+  margin: 0;
+  min-width: 200px;
+}
+
+.opening-hours__list {
+  display: flex;
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.opening-hours__day-interval {
+  flex: none;
+  width: 50%;
+}
+
+.opening-hours__text {
+  flex: none;
+  width: 50%;
+}
