@@ -1,0 +1,58 @@
+.carousel-transition {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	padding-bottom: 55%;
+	will-change: transform, opacity;
+}
+
+.carousel-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	border-radius: 100%;
+	border: 2px solid #cbcbcb;
+	background-color: #3336;
+	width: 25px;
+	height: 25px;
+	z-index: 10;
+}
+
+.carousel-transition > div {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.carousel-arrow .fas {
+	color: white;
+}
+
+.carousel-arrow:hover {
+	background-color: white;
+}
+
+.carousel-arrow:hover .fas {
+	color: black
+}
+
+.carousel-arrow .fa-chevron-left {
+	position: absolute;
+	top: 3px;
+	left: 5px;
+}
+
+.carousel-arrow .fa-chevron-right {
+	position: absolute;
+	top: 3px;
+	left: 6px;
+}
+
+.carousel-arrow-left {
+	left: 10px;
+}
+
+.carousel-arrow-right {
+	right: 10px;
+}
