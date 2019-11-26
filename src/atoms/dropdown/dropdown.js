@@ -2,7 +2,7 @@ import React from 'react'
 import cn from 'classnames'
 import './style.css'
 
-export default function Dropdown({ data, placeholder = 'Select', onChange, value }) {
+function Dropdown({ data, placeholder = 'Select', onChange, value }) {
 	const [selectedIndex, selectItem] = React.useState(value)
 	const [isDropdownToggled, toggleDropdown] = React.useState(false)
 	
@@ -18,6 +18,8 @@ export default function Dropdown({ data, placeholder = 'Select', onChange, value
 	const active = data.find(item => {
 		return item.id === selectedIndex
 	})
+
+	console.log('-- dropdown')
 
 	return (
 		<div className="dropdown" onClick={handleDropdownToggle}>
@@ -38,3 +40,5 @@ export default function Dropdown({ data, placeholder = 'Select', onChange, value
 		</div>
 	)
 }
+
+export default React.memo(Dropdown)

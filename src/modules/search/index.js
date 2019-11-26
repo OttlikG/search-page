@@ -6,7 +6,10 @@ import Button from '../../atoms/button/button'
 import PropertyCard from '../../components/property-card/property-card'
 import RangeSelector from '../../atoms/rage-selector/range-selector'
 
-import { searchAccommodation as searchAccommodationAction } from './action'
+import {
+	searchAccommodation as searchAccommodationAction,
+	getAccommodationImages as getAccommodationImagesAction
+} from './action'
 import { selectListings } from './selectors'
 
 import cities from './fixtures/cities'
@@ -16,13 +19,15 @@ import './style.css'
 
 function Search({
 	listings,
-	searchAccommodation
+	searchAccommodation,
+	getAccommodationImages
 }) {
 	const [city, onCityChange] = React.useState(1)
 	const [guest, onGuestChange] = React.useState()
 	const [minPrice, onMinPriceChange] = React.useState()
 
 	React.useEffect(() => {
+		console.log('search effect')
 		searchAccommodation({city, guest, minPrice})
 	}, [searchAccommodation])
 
@@ -30,6 +35,8 @@ function Search({
 		() => searchAccommodation({ city, guest, minPrice }),
 		[searchAccommodation, city, guest, minPrice]
 	)
+
+	console.log('-- search')
 
 	return (
 		<div className="search">
@@ -44,7 +51,7 @@ function Search({
 				</div>
 			</div>
 			<div className="listing">
-				{listings.map(listing => <PropertyCard {...listing} />)}
+				{listings.map(listing => <PropertyCard key={listing.heading} {...listing} getAccommodationImages={getAccommodationImages} />)}
 			</div>
 		</div>
 	)
@@ -53,5 +60,6 @@ function Search({
 export default connect((store) => ({
 	listings: selectListings(store)
 }), {
-	searchAccommodation: searchAccommodationAction
+		searchAccommodation: searchAccommodationAction,
+		getAccommodationImages: getAccommodationImagesAction
 })(Search)

@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 
-export default function RangeSelector({ labelPrefix, onChange, min, max, value, step = 1 }) {
+function RangeSelector({ labelPrefix, onChange, min, max, value, step = 1 }) {
 	const rangeSliderRef = React.useRef()
 	const [background, setBackground] = React.useState()
 	const [sliderCurrentValue, setSliderCurrentValue] = React.useState(value)
@@ -59,6 +59,8 @@ export default function RangeSelector({ labelPrefix, onChange, min, max, value, 
 	const labelText = [labelPrefix, sliderCurrentValue].join(' ')
 	const rangeValues = valueValidation({ min, max, initialValue: sliderCurrentValue })
 
+	console.log('-- range-selector')
+
 	return (
 		<div className="range-selector">
 			<div className="range-slider">
@@ -78,3 +80,5 @@ export default function RangeSelector({ labelPrefix, onChange, min, max, value, 
 		</div>
 	)
 }
+
+export default React.memo(RangeSelector)

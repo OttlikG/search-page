@@ -3,13 +3,16 @@ import IconText from '../../atoms/icon-text/icon-text'
 import Carousel from '../carousel/carousel'
 import './style.css'
 
-export default function PropertyCard({
+function PropertyCard({
+	id,
 	heading,
 	city,
 	images,
 	price,
-	facilities
+	facilities,
+	getAccommodationImages
 }) {
+	const propertyCardRef = React.useRef()
 	function generateFacilityText(facility, facilityAmount) {
 		if (facility === 'bedroomCount') {
 			return `${facilityAmount} Bedroom`
@@ -20,10 +23,43 @@ export default function PropertyCard({
 		}
 	}
 
+	React.useEffect(() => {
+		const options = {
+			threshold: 0.1
+		}
+		function inView(entries, observer) {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					getAccommodationImages(id)
+				}
+			})
+			console.log("-- in view", entries)
+		}
+		const observer = new IntersectionObserver(inView, options)
+		// const loadingBackgrounds = document.querySelectorAll('.carousel__loading-background');
+
+		// [...loadingBackgrounds].forEach(loadingBackground => {
+		// 	observer.observe(loadingBackground)
+		// })
+
+		observer.observe(propertyCardRef.current)
+		const persistPropertyCardRef = propertyCardRef.current
+
+		if (images.length) {
+			observer.unobserve(persistPropertyCardRef)
+		}
+
+		return () => {
+			observer.unobserve(persistPropertyCardRef)
+		}
+	}, [images])
+
+	console.log('-- property card')
+
 	return (
-		<div className="property-card">
+		<div className="property-card" ref={propertyCardRef}>
 			<div className="property-card__carousel">
-				<Carousel urls={images} imageWindow={5} />
+				<Carousel urls={images} />
 			</div>
 			<div className="property-card__description">
 				<div className="property-card__title">
@@ -37,4 +73,6 @@ export default function PropertyCard({
 			</div>
 		</div>
 	)
-}	
+}
+
+export default PropertyCard

@@ -56,3 +56,9 @@
 .carousel-arrow-right {
 	right: 10px;
 }
+
+.carousel__loading-background {
+	background-color: #d5d5d5;
+	height: 100%;
+	width: 100%;
+}

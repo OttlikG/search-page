@@ -34,19 +34,16 @@ export const searchAccommodation = query => async dispatch => {
 			PriceTop: query.maxPrice
 		}))
 
-		console.log('params', params)
 		const response = await fetch(`${BASE_URL}/search/api/?${params}`, {
 			headers: {
 				Accept: 'application/json'
 			}
 		})
 		const data = await response.json()
-		await Promise.all(data.Listings.map(async listing => {
+		dispatch(searchAccommodationSuccess(data.Listings))
+		await Promise.all(data.Listings.slice(0, 6).map(async listing => {
 			return dispatch(getAccommodationImages(listing.ListingId))
 		}))
-		dispatch(searchAccommodationSuccess(data.Listings))
-		console.log('data', data)
-
 	} catch (error) {
 		console.error(error)
 	}

@@ -9,13 +9,14 @@ function getImages(store) {
 }
 
 export const selectListings = createSelector(getListing, getImages, (listings, images) => {
+	console.log("-- selectListings")
 	return listings.map(listing => ({
 		id: listing.ListingId,
 		url: listing.Url,
 		heading: listing.Name,
 		city: listing.CityName,
 		price: listing.DisplayPriceWithFees,
-		images: images[listing.ListingId],
+		images: images[listing.ListingId] || [],
 		facilities: {
 			bedroomCount: listing.BedroomCount,
 			bathroomCount: listing.BathroomCount,
