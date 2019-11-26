@@ -27,7 +27,6 @@ function Search({
 	const [minPrice, onMinPriceChange] = React.useState()
 
 	React.useEffect(() => {
-		console.log('search effect')
 		searchAccommodation({city, guest, minPrice})
 	}, [searchAccommodation])
 
@@ -35,8 +34,6 @@ function Search({
 		() => searchAccommodation({ city, guest, minPrice }),
 		[searchAccommodation, city, guest, minPrice]
 	)
-
-	console.log('-- search')
 
 	return (
 		<div className="search">

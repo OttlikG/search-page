@@ -3,15 +3,16 @@ import IconText from '../../atoms/icon-text/icon-text'
 import Carousel from '../carousel/carousel'
 import './style.css'
 
-function PropertyCard({
-	id,
-	heading,
-	city,
-	images,
-	price,
-	facilities,
-	getAccommodationImages
-}) {
+function PropertyCard(props) {
+	const {
+		id,
+		heading,
+		city,
+		images,
+		price,
+		facilities,
+		getAccommodationImages
+	} = props
 	const propertyCardRef = React.useRef()
 	function generateFacilityText(facility, facilityAmount) {
 		if (facility === 'bedroomCount') {
@@ -23,6 +24,8 @@ function PropertyCard({
 		}
 	}
 
+	// const prevProps
+
 	React.useEffect(() => {
 		const options = {
 			threshold: 0.1
@@ -33,14 +36,8 @@ function PropertyCard({
 					getAccommodationImages(id)
 				}
 			})
-			console.log("-- in view", entries)
 		}
 		const observer = new IntersectionObserver(inView, options)
-		// const loadingBackgrounds = document.querySelectorAll('.carousel__loading-background');
-
-		// [...loadingBackgrounds].forEach(loadingBackground => {
-		// 	observer.observe(loadingBackground)
-		// })
 
 		observer.observe(propertyCardRef.current)
 		const persistPropertyCardRef = propertyCardRef.current
@@ -53,8 +50,6 @@ function PropertyCard({
 			observer.unobserve(persistPropertyCardRef)
 		}
 	}, [images])
-
-	console.log('-- property card')
 
 	return (
 		<div className="property-card" ref={propertyCardRef}>
@@ -75,4 +70,4 @@ function PropertyCard({
 	)
 }
 
-export default PropertyCard
+export default React.memo(PropertyCard)

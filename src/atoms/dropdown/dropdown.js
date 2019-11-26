@@ -19,8 +19,6 @@ function Dropdown({ data, placeholder = 'Select', onChange, value }) {
 		return item.id === selectedIndex
 	})
 
-	console.log('-- dropdown')
-
 	return (
 		<div className="dropdown" onClick={handleDropdownToggle}>
 			<div className="dropdown__active-option">

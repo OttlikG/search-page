@@ -78,7 +78,6 @@ function Carousel({ urls = [] }) {
 			<div className="carousel-transition">
 				{urls.length && transitions ? (
 					transitions.map(({ item, props, key, index }) => {
-						debugger
 						const comp = mapIndex(item, imageWindow, urls, currentImageIndex, windowedUrls)
 						
 						const Image = pages[comp];

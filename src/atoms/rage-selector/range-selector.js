@@ -59,8 +59,6 @@ function RangeSelector({ labelPrefix, onChange, min, max, value, step = 1 }) {
 	const labelText = [labelPrefix, sliderCurrentValue].join(' ')
 	const rangeValues = valueValidation({ min, max, initialValue: sliderCurrentValue })
 
-	console.log('-- range-selector')
-
 	return (
 		<div className="range-selector">
 			<div className="range-slider">

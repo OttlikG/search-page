@@ -76,7 +76,6 @@ const initialState = {
 export default function gallery(state = initialState, action) {
 	switch (action.type) {
 		case 'SET_IMAGES':
-			console.log('SET_IMAGES', action.payload)
 			return {
 				...state,
 				images: action.payload,
